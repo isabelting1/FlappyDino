@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ground extends Actor
+public class Ground extends Actor
 {
     /**
      * Act - do whatever the ground wants to do. This method is called whenever
@@ -14,6 +14,15 @@ public class ground extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+       
+        setLocation(getX()-7,getY());
+     
+        if (getX() == 0) {
+            getWorld().addObject(new Ground(), 799, 300);
+            getWorld().removeObject(this);
+        }
+        
+        
+        
     }    
 }
