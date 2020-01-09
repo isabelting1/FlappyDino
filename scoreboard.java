@@ -1,21 +1,21 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ResetButton here.
+ * Write a description of class scoreboard here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ResetButton extends Actor
+public class scoreboard extends Actor
 {
     /**
-     * Act - do whatever the ResetButton wants to do. This method is called whenever
+     * Act - do whatever the scoreboard wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public scoreboard(){
+    }
     public void act() 
     {
-          if (Greenfoot.mousePressed(this)) {
-              Greenfoot.setWorld(new DinoWorld());
-          }
+        // Add your action code here.
     }    
 }

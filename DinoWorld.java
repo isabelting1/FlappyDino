@@ -13,22 +13,19 @@ public class DinoWorld extends World
      * Constructor for objects of class DinoWorld.
      * 
      */
-    int count = 0;
-    int speed = 50;
-    int score;
+    static int count = 0;
+    static int score;
     public DinoWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 400, 1); 
-        setPaintOrder(Border.class,Asteroid.class,tRex.class,Tree.class);
+        setPaintOrder(Border.class,Asteroid.class,tRex.class,Tree.class, Pterodactyl.class);
         prepare();
     }
     
     public void act() {
         showScore();
         count++;
-     
-        
     }  
     
     
@@ -38,7 +35,7 @@ public class DinoWorld extends World
         showText(c,25,25);
     }
     
-    public int getScore() {
+    public static int getScore() {
         return score;
     }
     
@@ -51,7 +48,7 @@ public class DinoWorld extends World
         for (int i = 0; i <= (getWidth()/94); i++) {
             addObject(new Ground(),i * 94 ,300);
         }
-        
+
         tRex tRex = new tRex();
         addObject(tRex,125,275);
         Border border = new Border();
@@ -59,10 +56,10 @@ public class DinoWorld extends World
         Border border2 = new Border();
         addObject(border2,775,200); 
         addObject(new Tree(7), 600,285);
-        addObject(new Pterodactyl(), 400, 175);
-        addObject(new Pterodactyl(), 400, 225);
-        addObject(new Pterodactyl(), 400, 275);
+
         
- }
+        
+        
+    }
 
 }

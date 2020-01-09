@@ -12,10 +12,17 @@ public class tRex extends Actor
      * Act - do whatever the tRex wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int count = 0;
-    int score;
-    int obstacleSpeed = 7;
+    
     private int ySpeed;
+    
+    int count = 0;
+    int score = 0;
+    int obstacleSpeed = 7;
+    boolean canAddTree = true;
+    int lastTreeCount = 0;
+    boolean canAddPterodactyl = true;
+    int lastPterodactylCount = 0; 
+    
     GreenfootImage right = new GreenfootImage("Dino-right-up.png");
     GreenfootImage left = new GreenfootImage("dino-left-up.png");
     GreenfootImage stand = new GreenfootImage("Dino-stand.png");
@@ -24,19 +31,23 @@ public class tRex extends Actor
     public void act() 
     {
         count++;
+        score = DinoWorld.getScore(); 
         walk();
         jump();
         duck();
-        gameOver();
-        addTree();
         obstacleSpeed = 7 + (score/100);
-        getWorld().showText(Integer.toString(obstacleSpeed),400,375);
+        addTree();
+        addPterodactyl();
+        gameOver();
         
     } 
     
     public void gameOver() {
         if (isTouching(Tree.class) || isTouching(Pterodactyl.class)) {
+            Ground.count = 0;
+            Ground.score = 0;
             Greenfoot.setWorld(new GameOver());
+            
         }
         
         if (count == 5000) {
@@ -51,9 +62,28 @@ public class tRex extends Actor
     }
     
     public void addTree() {
-        if (count % 100 < 25 && Greenfoot.getRandomNumber(100) < 1) {
+        
+        if (canAddTree && Greenfoot.getRandomNumber(100) < 1) {
             getWorld().addObject(new Tree(obstacleSpeed),799,285);
-            
+            canAddTree = false;
+            lastTreeCount = count;
+        }
+        
+        if (count - lastTreeCount > 150) {
+            canAddTree = true;
+        }
+    }    
+    
+    public void addPterodactyl() {
+
+        if (canAddPterodactyl && score > 200 && Greenfoot.getRandomNumber(100) < 0.5) {
+            getWorld().addObject(new Pterodactyl(obstacleSpeed, (int)Greenfoot.getRandomNumber(3)),799,0);
+            canAddPterodactyl = false;
+            lastPterodactylCount = count;
+        }
+        
+        if (count - lastPterodactylCount > 150) {
+            canAddPterodactyl = true;
         }
     }
     public void jump() {

@@ -16,9 +16,29 @@ public class Pterodactyl extends Actor
     GreenfootImage down = new GreenfootImage("Pterodown.png");
     GreenfootImage up = new GreenfootImage("Pterodactyl.png");
     int count;
+    int height;
+    int speed;
+    public Pterodactyl(int speed, int height) {
+        switch (height) {
+            case 1:
+                this.height = 200;
+                break;
+            case 2:
+                this.height = 250;
+                break;
+            case 3:
+                this.height = 300;
+                break;
+            default: 
+                this.height = 250;
+                break;
+        
+        }
+        this.speed = speed;
+    }
     public void act() 
     {
-        setLocation(getX()-7, getY());
+        setLocation(getX()-speed, this.height);
         count++;
         
         if (count % 40 < 20) {

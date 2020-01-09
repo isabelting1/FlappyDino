@@ -25,7 +25,7 @@ public class Asteroid extends Actor
         }
         
         if (isTouching(tRex.class)) {
-            Greenfoot.setWorld(new GameOver());
+            Greenfoot.stop();
         }
     }    
 }

@@ -1,19 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameOver here.
+ * Write a description of class MainMenu here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GameOver extends World
+public class MainMenu extends World
 {
 
     /**
-     * Constructor for objects of class GameOver.
+     * Constructor for objects of class MainMenu.
      * 
      */
-    public GameOver()
+    public MainMenu()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 400, 1); 
@@ -26,11 +26,10 @@ public class GameOver extends World
      */
     private void prepare()
     {
-
-        GameOverIcon gameOverIcon = new GameOverIcon();
-        addObject(gameOverIcon,400,126);
-
-        ResetButton resetButton = new ResetButton();
-        addObject(resetButton,396,226);
+        DinoIcon dinoIcon = new DinoIcon();
+        addObject(dinoIcon,182,203);
+        
+        flappyBird f = new flappyBird();
+        addObject(f,500,203);
     }
 }
