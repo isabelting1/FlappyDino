@@ -63,7 +63,7 @@ public class tRex extends Actor
     
     public void addTree() {
         
-        if (canAddTree && Greenfoot.getRandomNumber(100) < 1) {
+        if (canAddTree && Greenfoot.getRandomNumber(100) < 1 && count - lastPterodactylCount > 50) {
             getWorld().addObject(new Tree(obstacleSpeed),799,285);
             canAddTree = false;
             lastTreeCount = count;
