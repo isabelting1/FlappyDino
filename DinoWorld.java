@@ -59,7 +59,7 @@ public class DinoWorld extends World
         Border border2 = new Border();
         addObject(border2,775,200); 
         
-        addObject(new Pterodactyl(7,1),800,400);
+        //addObject(new Pterodactyl(7,1),800,400);
         //addObject(new Pterodactyl(7,2),800,400);
         //addObject(new Pterodactyl(7,3),800,400);
 
