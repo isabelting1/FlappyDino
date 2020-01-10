@@ -24,10 +24,10 @@ public class Pterodactyl extends Actor
                 this.height = 200;
                 break;
             case 2:
-                this.height = 250;
+                this.height = 215;
                 break;
             case 3:
-                this.height = 300;
+                this.height = 275;
                 break;
             default: 
                 this.height = 250;

@@ -25,7 +25,7 @@ public class Ground extends Actor
         setLocation(getX()- groundSpeed ,getY());
         
         if (getX() == 0) {
-            getWorld().addObject(new Ground(), 799, 300);
+            getWorld().addObject(new Ground(), 800, 300);
             getWorld().removeObject(this);
         }
         

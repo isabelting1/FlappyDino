@@ -63,11 +63,11 @@ public class tRex extends Actor
     
     public void addTree() {
         
-        if (canAddTree && Greenfoot.getRandomNumber(100) < 1) {
+        if (canAddTree && Greenfoot.getRandomNumber(100) < 4 && count - lastPterodactylCount > 50) {
             getWorld().addObject(new Tree(obstacleSpeed),799,285);
             canAddTree = false;
             lastTreeCount = count;
-        }
+         }
         
         if (count - lastTreeCount > 150) {
             canAddTree = true;
@@ -76,13 +76,13 @@ public class tRex extends Actor
     
     public void addPterodactyl() {
 
-        if (canAddPterodactyl && score > 200 && Greenfoot.getRandomNumber(100) < 0.5) {
+        if (canAddPterodactyl && score > 200 && Greenfoot.getRandomNumber(100) < 2 && count - lastTreeCount > 50) {
             getWorld().addObject(new Pterodactyl(obstacleSpeed, (int)Greenfoot.getRandomNumber(3)),799,0);
             canAddPterodactyl = false;
             lastPterodactylCount = count;
         }
         
-        if (count - lastPterodactylCount > 150) {
+        if (count - lastPterodactylCount > 50) {
             canAddPterodactyl = true;
         }
     }
